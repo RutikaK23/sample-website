@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#main-nav a{
+    color: hsl(210, 12%, 97%);
+    background: #c38e8e;
+    display: block;
+    height: 70px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background 0.4s;
+    /* border-radius: 20px; */
+}
+
+#main-nav a:hover{
+    background: hsl(7, 17%, 73%);
+}
+
+#main-nav ul{
+    list-style: none;
+    display: flex;
+}
+
+#main-nav li{
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+#main-nav li:hover .submenu>li {
+    display: block;
+    top: 0px;
+}
+
+.submenu li{
+    display: none;
+    position: absolute;
+    top: 0px;
+}
+
+.submenu{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+}
