@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid-layout</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Heebo:wght@100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(10, 1fr);
+            grid-gap: 1em;
+            /* box-shadow: 10px 10px 40px grey; */
+            /* justify-content: center;
+            align-items: center; */
+        }
+
+
+        .grid-container>div {
+            background: lightgrey;
+            border-radius: 20px;
+
+            /* height: 50px; */
+            box-shadow: 10px 10px 10px grey;
+        }
+
+        .grid-container>div>img {
+            border-radius: 100px;
+            border-color: #c38e8e;
+            border-width: 10px;
+            border-style: double;
+        }
+
+        .grid-container>div:nth-child(odd) {
+            background: #c38e8e;
+        }
+
+        .box {
+            text-align: center;
+
+        }
+
+        .box1 {
+            grid-column: 1/4;
+            height: 70px;
+        }
+
+        .box2 {
+            grid-column: 1/3;
+            grid-row: 2/6;
+        }
+
+        .box3 {
+
+            grid-column: 3/4;
+            grid-row: 2/8;
+
+        }
+
+        .box4 {
+            grid-column: 1/4;
+        }
+
+        .box5 {
+            grid-column: 3/4;
+            grid-row: 8/9;
+
+
+        }
+
+        .box6 {
+            grid-column: 1/3;
+            grid-row: 6/8;
+
+        }
+
+        .box7 {
+            grid-column: 1/3;
+            grid-row: 8/9;
+
+        }
+
+        .grid-container>div .link {
+            font-family: monospace;
+        }
+
+        .grid-container>.box7>.animated-text>.links-roadmap {
+            font-family: monospace;
+        }
+
+        .main-nav {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 1fr;
+
+        }
+
+        .animated-text {
+            font-size: 20px;
+
+        }
+
+        .animated-text span {
+            position: relative;
+        }
+
+        .animated-text span::before {
+            content: "Computer Science";
+            color: #c38e8e;
+            animation: words 20s infinite;
+        }
+
+        .animated-text span::after {
+            content: '';
+            background-color: lightgrey;
+            position: absolute;
+            /* width: calc(100% + 8px); */
+            height: 100%;
+            border-left: 2px #c38e8e;
+            right: -8px;
+            animation: curcor .6s infinite, typing 20s steps(14) infinite;
+        }
+
+        
+        @keyframes cursor {
+            to {
+                border-left: 2px solid #c38e8e;
+            }
+        }
+
+        @keyframes words {
+
+            0%,
+            20% {
+                content: 'Computer Science';
+            }
+
+            21%,
+            40% {
+                content: 'Data Science';
+            }
+        }
+
+        @keyframes typing {
+
+            10%,
+            15%,
+            30%,
+            35%,
+            50%,
+            55%,
+            70%,
+            75%,
+            90%,
+            95% {
+                width: 0;
+            }
+
+            5%,
+            20%,
+            25%,
+            40%,
+            45%,
+            60%,
+            65%,
+            80%,
+            85% {
+                width: calc(100% + 8px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+
+        <div class="box box1">
+            <nav id="main-nav">
+                <!-- <div class="main-nav">
+                    <div class="box box-a">Home</div>
+                    <div class="box box-b">Services</div>
+                    <div class="box box-c">Achivements</div>
+                    <div class="box box-d">Resources</div>
+                </div> -->
+                <ul>
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Services
+                            <span class="arrow">&#x25BC;</span>
+                        </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="https://www.scnsoft.com/services/mobile-app-development/android"
+                                    target="_blank">Android Dev</a>
+                            </li>
+                            <li>
+                                <a href="https://www.hiddenbrains.com/ios-application-development.html"
+                                    target="_blank">iOS Dev</a>
+                            </li>
+                            <li>
+                                <a href="https://www.truelancer.com/?utm_source=google&utm_medium=adword&utm_campaign=blr_freelancer_hire&gclid=CjwKCAjwyqWkBhBMEiwAp2yUFmPITdx-6NUF-kG3j8mB-5las02by3zwIwxbIH9yZb8QaD447uVfVxoC5G4QAvD_BwE"
+                                    target="_blank">Web Dev
+                                    <span class="arrow">&#x25B6</span>
+                                </a>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Achivements</a>
+                    </li>
+                    <li>
+                        <a href="#">About
+                            <span class="arrow">&#x25BC;</span>
+                        </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="https://en.wikipedia.org/wiki/Android_(operating_system)#:~:text=Android%20is%20a%20mobile%20operating,such%20as%20smartphones%20and%20tablets.">Android</a>
+                            </li>
+                            <li>
+                                <a href="https://en.wikipedia.org/wiki/IOS">iOS</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="box box2">
+            <img src="../images/img9.jpg" alt="">
+            <!-- <img src="data:image/jpeg;base64,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"
+                alt="paula"> -->
+            <h2>Paula Harington</h2>
+            <h3>Position:- Software Developer</h3>
+            <p> Hey! I'm Paula. I'm Software Developer
+                at Techs. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis quidem labore quasi ex id
+                fugit at ut sed fugiat eos ipsa, natus corrupti incidunt voluptatum ad eaque esse dolores nam odit
+                maxime porro beatae. Pariatur quae ut numquam.
+            </p>
+            <p class="link" style="font-style: italic;">
+                To know more about my profession click on this <a
+                    href="https://en.wikipedia.org/wiki/Software_development" target="_blank">link</a>
+            </p>
+        </div>
+        <div class="box box3" style="display: grid; margin: 10px; padding: 10px;">
+            <h2 style="color: white;">"Programming can be fun, and so can cryptography; however, they should not be
+                combined.”</h2>
+
+            <p class="aside" style="font-size: large; color: white;">Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Ex qui magnam suscipit temporibus modi! Voluptate
+                id iste illo error repellendus quaerat esse nemo nobis. Adipisci odit ex incidunt qui facilis ratione
+                aut
+                iusto nulla, praesentium magnam nam illo sequi rem libero sed quisquam soluta distinctio, eius aperiam!
+                Velit, eos cupiditate.</p>
+        </div>
+        <!-- <div class="box box4">Footer</div> -->
+        <div class="box box5">
+            <h3>
+                Want an app developed?
+                <h4>
+                    No worries..... When you have such a great Software developer.
+                </h4>
+                <p class="ads">
+                    For more projects check my <a href="">projects</a> site.
+                <p>Contact:- 1234567890 </p>
+                </p>
+            </h3>
+        </div>
+        <div class="box box6">
+            <h3>
+                Achivements
+            </h3>
+            <p class="news">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum pariatur voluptatem aperiam,
+                consequuntur vel ea amet nobis aspernatur accusantium magni enim perferendis eligendi provident, fuga
+                atque saepe odit, et perspiciatis ipsam cupiditate laudantium quos eaque a? Accusamus nemo nesciunt
+                minus, sapiente voluptates quidem possimus architecto blanditiis recusandae aliquam fuga repudiandae!
+            </p>
+        </div>
+        <div class="box box7">
+            <div class="animated-text">
+                <h3> Roadmap for <span></span>
+                    <h4 id="links-roadmap" style="font-family: monospace;"><a href="https://roadmap.sh/computer-science"
+                            target="_blank">Computer Science</a>
+                    </h4>
+                    <h4 id="links-roadmap" style="font-family: monospace;"><a
+                            href="https://www.geeksforgeeks.org/how-to-become-data-scientist-a-complete-roadmap/"
+                            target="_blank">Data Science</a>
+                    </h4>
+                </h3>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
